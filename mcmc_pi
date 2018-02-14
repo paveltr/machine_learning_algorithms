@@ -1,0 +1,43 @@
+"""
+In this script I will show how to find a circle square
+Firstly we need to know calculate a pi value
+
+area of a circle => pi * r**2, where r- circle radius
+area of a square => 2r * 2r = 4*r**2
+
+ration of areas 
+
+ratio = 4*r**2 / pi*r**2 = 4 / pi
+then pi = 4 / ratio
+
+The equation for a circle => x**2 + y**2 <= r**2 (all points inside a circle)
+Otherwise, if x in [0, r] and y in [0, r] then if they are not in a circle, they are in a square
+
+
+"""
+
+from random import random
+
+N = 10**7
+r = 1
+
+n_circle = 0
+n_total = 0
+
+for n in range(N):
+    x = 2*random() - 1
+    y = 2*random() - 1
+    if x**2 + y**2 < r**2:
+        n_circle += 1
+    n_total += 1
+    
+ratio = n_circle / n_total
+
+pi = 4*ratio
+print('pi = ', pi)
+
+
+
+RADIUS = 10
+
+print('Area of circle with radius %s equals %s' % (RADIUS, pi*RADIUS*RADIUS))
